@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-model实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>v-model实例</h1>
+    <hr>
+    <div id="app">
+        <h3>文本信息：{{message}}CYS</h3>
+        <h3>input</h3>
+        <p>v-model:&nbsp;<input type="text" v-model="message"></p>
+        <p>v-model.lazy:&nbsp;<input type="text" v-model.lazy="message"></p>
+        <p>v-model.number:&nbsp;<input type="text" v-model.number="message"></p>
+        <p>v-model.trim:&nbsp;<input type="text" v-model.trim="message"></p>
+        <h3>文本域：</h3>
+        <textarea name="txt" id="" cols="30" rows="10" v-model="message"></textarea>
+        <h3>多选框绑定一个值：</h3>
+        <input type="checkbox" id="checkbox0" v-model="isTrue">
+        <label for="checkbox0">{{isTrue}}</label>
+        <br>
+        <h3>多选框绑定数组：</h3>
+        <input type="checkbox" id="A" value="A" v-model="word_array">
+        <label for="A">A</label>
+        <input type="checkbox" id="B" value="B" v-model="word_array">
+        <label for="B">B</label>
+        <input type="checkbox" id="C" value="C" v-model="word_array">
+        <label for="C">C</label>
+        <input type="checkbox" id="D" value="D" v-model="word_array">
+        <label for="D">D</label>
+        <p>{{word_array}}</p>
+
+        <h3>单选框绑定：</h3>
+        <p>
+            <input type="radio" id="man" name="sex" value="man" v-model="sex">
+            <label for="man">man</label>
+            <input type="radio" id="woman" name="sex" value="woman" v-model="sex">
+            <label for="woman">woman</label>
+            <br>
+            <span>{{sex}}</span>
+        </p>
+
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "hello",
+                isTrue: true,
+                word_array: [],
+                sex:"man",
+            }
+        });
+    </script>
+
+</body>
+
+</html>
