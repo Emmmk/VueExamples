@@ -1,0 +1,37 @@
+# 开发规范
+
+## 使用Vue.js注意事项
+
+1. v-text && v-html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-text与v-html实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-text与v-html实例</h1>
+    <hr>
+    <div id="app">
+        <!--使用v-text标签更友好，当js丢失或者因网速慢没有及时加载出来时，直接在页面显示{{....}}的问题-->
+        <span>{{message}}</span> = <span v-text="message"></span> <br/>
+        <!-- 需要注意的是：在生产环境中动态渲染HTML是非常危险的，因为容易导致XSS攻击。所以只能在可信的内容上使用v-html，永远不要在用户提交和可操作的网页上使用-->
+        <span v-html="todo"></span>
+    </div>
+    <script type="text/javascript">
+        var vue = new Vue({
+            el:'#app',
+            data:{
+                message:'Hello World!!!!!',
+                todo:'<h2>Hello World!</h2>',
+            }
+        });
+    </script>
+</body>
+</html>
+```
