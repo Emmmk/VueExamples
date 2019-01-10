@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <script type="text/javascript" src="../assets/js/common.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <ul>
+            <li v-for="item in sortItems">
+                {{item}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="item in sortItems2()">
+                {{item}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(book,index) in sortStudents">
+                {{index+1}}:{{book.name}}-{{book.price}}
+            </li>
+        </ul>
+
+    </div>
+    <script type="text/javascript">
+        var app1 = new Vue({
+            el: "#app",
+            data: {
+                items: [123, 443, 223, 12, 32, 23, 12],
+                books: [{
+                        name: "唱片奇迹行",
+                        price: 48.00
+                    },
+                    {
+                        name: "大话数据结构",
+                        price: 36.00
+                    },
+                    {
+                        name: "寻找幸福",
+                        price: 57.00
+                    },
+                ],
+            },
+            computed: {
+                sortItems: function () {
+                    //console.log('pass');
+                    //return this.items.sort(sortNumber); //sortNumber-正序，sortNumberDesc-倒序
+                    return this.items.concat().sort(sortNumber); //sortNumber-正序，sortNumberDesc-倒序
+                },
+                sortStudents: function () {
+                    return sortArrObjectsByKey(this.books.concat(),"price");
+                }
+
+            },
+            methods: {
+                sortItems2: function () {
+                    //console.log('pass2'); 
+                    //concat() 先创建当前数组一个副本，然后将接收到的参数添加到这个副本的末尾，最后返回新构建的数组
+                    //return this.items.sort(sortNumberDesc);//sortNumber-正序，sortNumberDesc-倒序
+                    return this.items.concat().sort(sortNumberDesc);
+                },
+               
+
+            },
+
+        });
+    </script>
+</body>
+
+</html>

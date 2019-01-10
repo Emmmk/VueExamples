@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-on指令</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../assets/css/common.css">
+</head>
+
+<body>
+    <h1>v-on实例</h1>
+    <hr>
+    <div id="app">
+        <span v-text="point"></span>
+        <button v-on:click="ExtraPoints" class="btn_confirm">加分</button>
+        <button v-on:click="DeductionOfPoint" class="btn_confirm">减分</button>
+        <input type="text" v-on:keyup.enter="onEnter" v-model="second_point" onkeyup="value=value.replace(/[^\d]/g,'')"
+        onblur="value=value.replace(/[^\d]/g,'')">
+
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                point: 0
+            },
+            methods: {
+                ExtraPoints: function () {
+                    this.point++;
+                },
+                DeductionOfPoint: function () {
+                    this.point--;
+                },
+                onEnter: function () {
+                    if (this.second_point == "" || !this.second_point) return;
+                    this.point += parseInt(this.second_point);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
