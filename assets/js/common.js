@@ -1,3 +1,5 @@
+//公共方法
+
 //数组排序方法
 function sortNumber(a, b) {
     return a - b;
