@@ -12,4 +12,4 @@ Vue.js练习
 
 > live-server
 
-## Vue.js浏览器调试插件--> https://github.com/vuejs/vue-devtools
+## Vue.js浏览器调试插件--> [c-code](https://github.com/vuejs/vue-devtools)
