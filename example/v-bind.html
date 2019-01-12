@@ -29,12 +29,33 @@
             <img :src="imgSrc" alt="" width="200px;">
         </p>
 
+        <!-- 绑定class有2种语法
+            （一、对象语法：1.数据属性对象、2.计算属性对象；二、数组语法）
+             绑定style有3种语法
+            （一、对象语法：1.数据属性对象、2.计算属性对象；二、数组语法；三、多重值） -->
+
         <!--绑定css样式-->
-        <p>绑定的值必须在vue实例中的data属性中进行声明
+        <p>01.绑定的值必须在vue实例中的data属性中进行声明
             <br>
-            <button :class="className">绑定class属性</button>
+            <button :class="className" title="绑定class属性">绑定class属性</button>
         </p>
 
+        <p>02.绑定对象
+            注意 {className:bool}中的className如果是样式名称建议加上单引号，如果是css属性则不用；
+            而且className不能是Vue实例data中的数据
+            <br>
+            <button v-bind:class="{'btn_confirm': isActive}" title="绑定class对象">绑定class对象</button>
+            <br>
+            <button v-bind:class="classObject" title="绑定class对象">绑定class对象</button>
+            <br>
+            <span></span>
+            <div v-bind:class="styleObject" title="绑定class对象">绑定class对象</div>
+        </p>
+
+        <p>03.用数组绑定class
+            <br>
+            <button :class="[classA,classB]" title="用数组绑定class">用数组绑定class</button>
+        </p>
 
     </div>
 
@@ -44,6 +65,19 @@
             data: {
                 imgSrc: "/assets/img/南极.jpg",
                 className: "btn_confirm",
+                classA: "btn_confirm",
+                classB: "btn_capsule",
+                isActive: true,
+                classObject: {
+                    btn_confirm: true
+                },
+                colorA: '#f00',
+                fontA: '18px',
+                styleObject: {
+                    fontSize: '24px',
+                    color: 'blue'
+                },
+
             },
         });
     </script>
