@@ -2,11 +2,11 @@
 
 .btn_confirm {
     /* font-size: 15px; */
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px 10px 5px 10px;
     background-color: #42b983;
     color: #FFFFFF;
     border: none;
+    white-space: nowrap;  /*规定文本不进行换行：*/
+    overflow: hidden;     /*隐藏溢出*/
+    text-overflow:ellipsis; /*是超出省略变...*/
 }
