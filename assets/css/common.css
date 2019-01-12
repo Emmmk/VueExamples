@@ -9,11 +9,20 @@
     color: #FFFFFF;
     border: none;
     outline: none;
-    white-space: nowrap;  /*规定文本不进行换行：*/
-    overflow: hidden;     /*隐藏溢出*/
-    text-overflow:ellipsis; /*是超出省略变...*/
+    /*规定文本不进行换行：*/
+    white-space: nowrap;
+    /*隐藏溢出*/
+    overflow: hidden;
+    /*是超出省略变...*/
+    text-overflow: ellipsis;
+
 }
-.btn_capsule{
+
+.btn_capsule {
     border-radius: 20px;
 }
 
+/*Vue.js样式，确保页面加载时不会出现Vue.js变量  */
+[v-cloak] {
+    display: none !important;
+}

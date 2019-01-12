@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-pre & v-cloak & v-once 指令</title>
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <script type="text/javascript" src="/assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>v-pre & v-cloak & v-once 指令</h1>
+    <hr>
+    <div id="app">
+        <p> {{message}}</p>
+        <span>在模板中跳过vue的编译，直接输出原始值</span>
+        <p v-pre>
+            <!--在模板中跳过vue的编译，直接输出原始值-->
+            {{message}}
+        </p>
+        <span>v-cloak 这个指令是防止页面加载时(如网速缓慢。。。)出现 vuejs 的变量名而设计的</span>
+        <p v-cloak>
+            {{message}}
+        </p>
+        <span>在第一次DOM时进行渲染，且只会渲染一次-</span>
+        <p v-once>
+            <!--在第一次DOM时进行渲染，且只会渲染一次-->
+            {{message}}
+        </p>
+    </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "hi,wenyi!",
+            }
+
+        });
+    </script>
+
+</body>
+
+</html>
