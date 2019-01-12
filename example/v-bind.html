@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind实例</title>
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>v-bind实例</h1>
+    <hr>
+    <div id="app">
+        <!--绑定属性-->
+        <p>完整语法
+            <br>
+            v-bind:src="imgSrc"
+            <br>
+            <img v-bind:src="imgSrc" alt="" width="200px;">
+        </p>
+
+        <p>缩写
+            <br>:
+            src="imgSrc"
+            <br>
+            <img :src="imgSrc" alt="" width="200px;">
+        </p>
+
+        <!--绑定css样式-->
+        <p>绑定的值必须在vue实例中的data属性中进行声明
+            <br>
+            <button :class="className">绑定class属性</button>
+        </p>
+
+
+    </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                imgSrc: "/assets/img/南极.jpg",
+                className: "btn_confirm",
+            },
+        });
+    </script>
+
+</body>
+
+</html>
