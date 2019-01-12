@@ -11,3 +11,5 @@ Vue.js练习
 在浏览器中打开
 
 > live-server
+
+## Vue.js浏览器调试插件--> https://github.com/vuejs/vue-devtools
