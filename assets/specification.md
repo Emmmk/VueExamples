@@ -39,9 +39,9 @@ Mustache 标签将会被替代为对应数据对象上 msg 属性的值。无论
 ```
 ![Alt text](/assets/imgMD/v-html.png "optional title")
 
-span中的内容将会被替换为替换为属性值<font color=#FF0000>txthtml</font>，直接作为html（会忽略其中的数据绑定）
+span中的内容将会被替换为替换为属性值<font color="#FF0000">txthtml</font>，直接作为html（会忽略其中的数据绑定）
 
-> <font size=4 color=#42b983>注意！你的站点上动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。请只对可信内容使用 HTML 插值，绝不要对用户提供的内容使用插值</font>
+> <font size="4" color="#42b983">注意！你的站点上动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。请只对可信内容使用 HTML 插值，绝不要对用户提供的内容使用插值</font>
 
 3 . v-if指令
 
