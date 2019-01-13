@@ -15,6 +15,9 @@
         <span>{{message}}</span> = <span v-text="message"></span> <br/>
         <!-- 需要注意的是：在生产环境中动态渲染HTML是非常危险的，因为容易导致XSS攻击。所以只能在可信的内容上使用v-html，永远不要在用户提交和可操作的网页上使用-->
         <span v-html="todo"></span>
+        <br>
+        <p>“Mustache”语法：{{txthtml}}</p>
+        <p>v-html指令：<span v-html="txthtml"></span></p>
     </div>
     <script type="text/javascript">
         var vue = new Vue({
@@ -22,6 +25,7 @@
             data:{
                 message:'Hello World!!!!!',
                 todo:'<h2>Hello World!</h2>',
+                txthtml:'<span style="color:red;">v-html显示</span>',
             }
         });
     </script>
