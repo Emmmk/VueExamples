@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue.directive实例</title>
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <script type="text/javascript" src="/assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>vue.directive(自定义指令)实例</h1>
+    <hr>
+    <div id="app">
+        <p v-mydirective="color0103">{{num}}</p>
+        <p><button :class="btn_style" @click="bth_add">ADD</button></p>
+
+    </div>
+    <script type="text/javascript">
+
+        // 注册
+        Vue.directive('my-directive', {
+        bind: function () {},
+        inserted: function () {},
+        update: function () {},
+        componentUpdated: function () {},
+        unbind: function () {}
+        });
+
+
+        // 注册 (指令函数)
+        // 自定义指令中传递的三个参数
+        // el: 指令所绑定的元素，可以用来直接操作DOM
+        // binding: 一个对象，包含指令的很多信息
+        // vnode: Vue编译生成的虚拟节点
+        Vue.directive("mydirective", function (el, binding) {  //自定义指令Vue.directive中的指令名称（mycolor）必须对应标签中的指令（v-mycolor）‘-’后面的部分
+            // 这里将会被 `bind` 和 `update` 调用
+            console.log(el);
+            console.log(binding);
+            el.style = "color:" + binding.value;
+
+        });
+        var app = new Vue({
+            el: "#app",
+            data: {
+                num: 233,
+                btn_style: "btn_confirm",
+                color0103: "red",
+            },
+            methods: {
+                bth_add: function () {
+                    this.num++;
+                }
+            },
+        });
+    </script>
+
+</body>
+
+</html>
