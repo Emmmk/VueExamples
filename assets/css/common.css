@@ -15,7 +15,10 @@
     overflow: hidden;
     /*是超出省略变...*/
     text-overflow: ellipsis;
+}
 
+.btn_confirm:hover {
+    background-color: #228B22;
 }
 
 .btn_capsule {
