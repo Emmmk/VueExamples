@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" />
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scazle=1" >
+    <meta name="viewport" content="width=device-width,initial-scazle=1">
     <title>HelloWorld</title>
     <script type="text/javascript" src="../assets/js/vue.js"></script>
 </head>
-    <body>
-        <H1>HelloWorld</H1>
-        <div id="app">
-            <p>{{message}}</p>
-        </div>
-        <script type="text/javascript">
-            var app1 = new Vue({
-                el:'#app',           //el为ELEMENT的缩写
-                data:{
-                    message:'HelloWorld!!!!!'
-                }
-            });
 
-        </script>
-    </body>
+<body>
+    <H1>HelloWorld</H1>
+    <div id="app-1">
+        <p>{{message}}</p>
+        <p>{{isLogin? "Hello," + username + "!" : "请登陆！"}}</p>
+    </div>
+    <script type="text/javascript">
+        var app1 = new Vue({
+            el: '#app-1', //el为ELEMENT的缩写
+            data: {
+                message: 'HelloWorld!!!!!',
+                isLogin: true,
+                username: "陈彦森",
+            }
+        });
+    </script>
+</body>
+
 </html>
