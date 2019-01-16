@@ -2,7 +2,6 @@
 
 ## 一、Vue.js指令
 
-
 1 . 数据绑定--“Mustache”语法 (双大括号)
 
 数据绑定最常见的形式就是使用“Mustache”语法 (双大括号) 的文本插值，
@@ -18,6 +17,29 @@ Mustache 标签将会被替代为对应数据对象上 msg 属性的值。无论
     <span v-once>这个将不会改变: {{ msg }}</span>
 ```
 
+### 使用JavaScript表达式
+
+对于所有的数据绑定，Vue.js提供了完全的JavaScript表达式支持
+
+```html
+    {{ number + 1 }}
+
+    {{ ok ? 'YES' : 'NO' }}
+
+    {{ message.split('').reverse().join('') }}
+
+    <div v-bind:id="'list-' + id"></div>
+```
+
+需要注意的是，每个绑定都只能包含<font color="#FF0033">单个表达式</font>,下面的例子就不会生效
+
+```html
+    <!-- 这是语句，不是表达式 -->
+    {{ var a = 1 }}
+
+    <!-- 流控制也不会生效，请使用三元表达式 -->
+    {{ if (ok) { return message } }}
+```
 
 2 . v-html指令  
 
@@ -37,13 +59,16 @@ Mustache 标签将会被替代为对应数据对象上 msg 属性的值。无论
     </script>
 
 ```
+
 ![Alt text](/assets/imgMD/v-html.png "optional title")
 
 span中的内容将会被替换为替换为属性值<font color="#FF0000">txthtml</font>，直接作为html（会忽略其中的数据绑定）
 
-> <font size="4" color="#42b983">注意！你的站点上动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。请只对可信内容使用 HTML 插值，绝不要对用户提供的内容使用插值</font>
+> <font size=4 color="#42b983">注意！你的站点上动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。请只对可信内容使用 HTML 插值，绝不要对用户提供的内容使用插值</font>
 
 3 . v-if指令
+
+v-if 指令将根据表达式 isLogin 的值的真假来插入/移除对应的元素。
 
 ```html
  <div id="app">
