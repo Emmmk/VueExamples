@@ -31,7 +31,7 @@ Mustache 标签将会被替代为对应数据对象上 msg 属性的值。无论
     <div v-bind:id="'list-' + id"></div>
 ```
 
-需要注意的是，每个绑定都只能包含<font color="#FF0033">单个表达式</font>,下面的例子就不会生效
+需要注意的是，每个绑定都只能包含 <font color=#FF0033>单个表达式</font>,下面的例子就不会生效
 
 ```html
     <!-- 这是语句，不是表达式 -->
@@ -41,7 +41,7 @@ Mustache 标签将会被替代为对应数据对象上 msg 属性的值。无论
     {{ if (ok) { return message } }}
 ```
 
-2 . v-html指令  
+2 . v-html 指令  
 
 双大括号会将数据解释为普通文本，而非 HTML 代码。为了输出真正的 HTML，你需要使用 v-html 指令：
 
@@ -62,11 +62,11 @@ Mustache 标签将会被替代为对应数据对象上 msg 属性的值。无论
 
 ![Alt text](/assets/imgMD/v-html.png "optional title")
 
-span中的内容将会被替换为替换为属性值<font color="#FF0000">txthtml</font>，直接作为html（会忽略其中的数据绑定）
+span中的内容将会被替换为替换为属性值<font color=#FF0000>txthtml</font>，直接作为html（会忽略其中的数据绑定）
 
-> <font size=4 color="#42b983">注意！你的站点上动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。请只对可信内容使用 HTML 插值，绝不要对用户提供的内容使用插值</font>
+> <font size=4 color=#42b983> 注意！你的站点上动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。请只对可信内容使用 HTML 插值，绝不要对用户提供的内容使用插值 </font>
 
-3 . v-if指令
+3 . v-if 指令
 
 v-if 指令将根据表达式 isLogin 的值的真假来插入/移除对应的元素。
 
@@ -86,6 +86,8 @@ v-if 指令将根据表达式 isLogin 的值的真假来插入/移除对应的�
 ```
 
 4 . v-text && v-html
+
+对比“Mustache”语法 (双大括号)来说，使用v-text标签更友好，可以避免在js丢失时或者因网速慢没有及时加载出来时，直接在页面显示{{....}}的问题
 
 ```html
 
