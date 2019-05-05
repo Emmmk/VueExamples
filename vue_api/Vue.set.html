@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.set全局操作</title>
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <script type="text/javascript" src="/assets/js/vue.js"></script>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <section>
+        <div id="app">
+            <p >{{count}}</p>
+            <p><button :class="btn_style" @click="bth_add">ADD</button></p>
+            <p><button :class="btn_style" onclick="app.count++;">用Vue对象的方法添加</button></p>
+            <p><button :class="btn_style" onclick="add();">用Vue.set改变</button></p>
+            <p><button :class="btn_style" onclick="outData.count++;">直接操作外部数据</button></p>
+            
+        </div>
+    </section>
+    <footer>
+
+    </footer>
+    <script>
+        //在构造器外部声明数据
+        var outData = {
+            count: 1,
+            goodName: 'car',
+            btn_style: "btn_confirm",
+        };
+
+        var app = new Vue({
+            el: "#app",
+            data: outData,
+            methods: {
+                bth_add: function () {
+                    this.count++;
+                },
+            },
+        });
+
+        function add() {
+            Vue.set(outData, 'count', 4);
+        }
+
+    </script>
+</body>
+
+</html>

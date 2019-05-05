@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>component组件</title>
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <script type="text/javascript" src="/assets/js/vue.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>component组件</h1>
+    </header>
+    <section>
+        <div id="app">
+            <mydefine></mydefine>
+            <jubu v-bind:country="c"></jubu>
+        </div>
+    </section>
+    <footer></footer>
+    <script type="text/javascript">
+        Vue.component("mydefine", {
+            template: `<div style="color:red;">全局化注册的component组件</div>`,
+        });
+        var app = new Vue({
+            el: "#app",
+            data: {
+                c:"Chinaaa"
+            },
+            components: {
+                "jubu": {
+                    template: `<div style="color:blue;">局部注册的component组件:I am from {{country}}</div>`,
+                    props:["country"]
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

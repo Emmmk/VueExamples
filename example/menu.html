@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>多级菜单</title>
+ 
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+
+     <!-- 引入样式 -->
+     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+     <!-- 引入组件库 -->
+     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+    <script>
+            import Menu from '@/components/Menu.vue'
+        
+            export default {
+                name: 'home',
+                components: {
+                    Menu
+                },
+                data() {
+                    return {
+                        router: // ... 省略菜单数据
+                            
+                                {
+                                    name: "About",
+                                    path: "/about",
+                                    children: [
+                                        {
+                                            name: "About US",
+                                            path: "/about/us"
+                                        },
+                                        {
+                                            name: "About Comp",
+                                            path: "/about/company",
+                                            children: [
+                                                {
+                                                    name: "About Comp A",
+                                                    path: "/about/company/A",
+                                                    children: [
+                                                        {
+                                                            name: "About Comp A 1",
+                                                            path: "/about/company/A/1"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }                            
+        
+                    }
+                }
+            }
+
+            new Vue({
+                el:'#app',
+                data:{
+
+                }
+            })
+        
+        </script>
+</head>
+
+<body>
+    <div id="app">
+            <template>
+                    <div class="home">
+                        <menu :router="router"></menu>
+                    </div>
+            </template>
+    </div>
+</body>
+
+
+</html>

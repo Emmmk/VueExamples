@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Component父子组件</title>
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <script type="text/javascript" src="/assets/js/vue.js"></script>
+</head>
+
+<body>
+    <header></header>
+    <section>
+        <div id="app">
+            <partentcompant></partentcompant>
+        </div>
+    </section>
+    <footer></footer>
+    <script type="text/javascript">
+        var temp = {
+            template: `<div>Panda from China</div>`
+        };
+
+        var partentcompant = {
+            template: `<div>
+                    <p>China of World</p>
+                    <temp></temp>
+            </div>`,
+            components: {
+                "temp": temp
+            }
+        };
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+
+            },
+            components: {
+                "partentcompant": partentcompant
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>

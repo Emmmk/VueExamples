@@ -3,7 +3,7 @@
 .btn_confirm {
     /* font-size: 15px; */
     min-width: 50px;
-    max-width: 70px;
+    /* max-width: 70px; */
     padding: 5px 10px 5px 10px;
     background-color: #42b983;
     color: #FFFFFF;
@@ -14,7 +14,7 @@
     /*隐藏溢出*/
     overflow: hidden;
     /*是超出省略变...*/
-    text-overflow: ellipsis;
+    /* text-overflow: ellipsis; */
 }
 
 .btn_confirm:hover {
