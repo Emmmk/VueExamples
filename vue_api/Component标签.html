@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Component标签</title>
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <script type="text/javascript" src="/assets/js/vue.js"></script>
+</head>
+
+<body>
+    <header></header>
+    <section>
+        <div id="app">
+            <component v-bind:is="who"></component>
+            <button @click="changeComponent">changeComponent</button>
+        </div>
+    </section>
+    <footer></footer>
+    <script type="text/javascript">
+        var cpomponenta={
+            template:`<div>It's cpomponentA </div>`
+        }
+        var cpomponentb={
+            template:`<div>It's cpomponentB </div>`
+        }
+        var cpomponentc={
+            template:`<div>It's cpomponentC </div>`
+        }
+
+        var app=new Vue({
+            el:"#app",
+            data:{
+                who:cpomponentb
+            },
+            components:{
+                "cpomponenta":cpomponenta,
+                "cpomponentb":cpomponentb,
+                "cpomponentc":cpomponentc,
+            },
+            methods:{
+                changeComponent:function(){
+                    if(this.who=='cpomponenta'){
+                        this.who='cpomponentb';
+                    }else if(this.who=='cpomponentb'){
+                        this.who='cpomponentc';
+                    }else{
+                        this.who='cpomponenta';
+                    }
+                }
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
