@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Methods Option 方法选项</title>
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <script type="text/javascript" src="/assets/js/vue.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <p></p>
+    </header>
+    <section>
+        <div id="app">
+            <p>1.methods中参数的传递</p>
+            {{ a }}
+            <p><button @click="add(2)">add</button></p>
+            <p>2.methods中的$event参数</p>
+            <p><button @click="add2(5,$event)">add2</button></p>
+            <p><button @mouseenter="add2(6,$event)">add2</button></p>
+            <p>调用组件里面的方法</p>
+            <p><btn @click.native="add(2)"></btn></p>
+            <p></p>
+            <p>
+               <button onclick="app.add(4)" >外部调用构造器里的方法</button>
+            </p>
+        </div>
+    </section>
+    <footer></footer>
+
+
+    <script type="text/javascript">
+
+        var btn={
+            template:`<button>组件add按钮</button>`
+        } 
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                a: 1
+            },
+            methods: {
+                add: function (num) {
+                    if (num != '') { this.a += num }
+                    else { this.a++ }
+                },
+                add2: function (num,obj) {
+                    if (num != '') { this.a += num }
+                    else { this.a++ }
+                },
+
+            },
+            components:{
+                "btn":btn
+            }
+        });
+    </script>
+
+</body>
+
+</html>

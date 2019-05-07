@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Watch 选项 监控数据</title>
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <script type="text/javascript" src="/assets/js/vue.js"></script>
+</head>
+
+<body>
+
+    <H1>HelloWorld</H1>
+    <div id="app">
+        <p>今日温度{{wendu}}</p>
+        <p><button @click="add(1)">add</button><button @click="red(1)">减少</button></p>
+        <p>{{suggestion}}</p>
+    </div>
+    <script type="text/javascript">
+        var app1 = new Vue({
+            el: '#app', //el为ELEMENT的缩写
+            data: {
+                wendu: 20,
+                suggestion: "建议衬衫"
+            },
+            methods: {
+                add: function () {
+                    this.wendu += 5;
+                },
+                red: function () {
+                    this.wendu -= 5;
+                }
+            },
+            watch: {
+                wendu: function (newValue, oldValue) {
+                    if (newValue > 27) {
+                        this.suggestion = "建议T恤";
+                    }
+                    else if (newValue <= 27 && newValue > 20) {
+                        this.suggestion = "建议夹克";
+                    }
+                    else if (newValue <= 20 && newValue > 15) {
+                        this.suggestion = "建议大衣";
+                    } else {
+                        this.suggestion = "建议棉衣";
+                    }
+                }
+            }
+        });
+
+        //或者
+        app.$watch("wendu", function ()(newValue, oldValue){
+            //...
+        });
+
+    </script>
+
+</body>
+
+</html>
