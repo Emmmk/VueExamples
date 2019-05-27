@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mixins 混入选项操作</title>
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <script type="text/javascript" src="/assets/js/vue.js"></script>
+</head>
+
+<body>
+    <header></header>
+    <section>
+        <div id="app">
+
+        </div>
+
+    </section>
+
+
+    <script type="text/javascript">
+
+        //实例事件就是在构造器外部写一个调用构造器内部的方法。这样写的好处是可以通过这种写法在构造器外部调用构造器内部的数据。
+
+        //一、$on 在构造器外部添加事件。
+        app.$on('reduce', function () {
+            console.log('执行了reduce()');
+            this.num--;
+        });
+
+        //如果按钮在作用域外部，可以利用$emit来执行。
+
+        //外部调用内部事件
+        function reduce() {
+            app.$emit('reduce');
+        }
+
+        //二、$once执行一次的事件
+        app.$once('reduceOnce', function () {
+            console.log('只执行一次的方法');
+            this.num--;
+        });
+
+        //三、$off关闭事件
+        //关闭事件
+        function off() {
+            app.$off('reduce');
+        }
+
+    </script>
+
+</body>
+
+</html>

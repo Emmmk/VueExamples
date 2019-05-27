@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mixins 混入选项操作</title>
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <script type="text/javascript" src="/assets/js/vue.js"></script>
+</head>
+
+<body>
+    <header>
+          
+    </header>
+    <section>
+        <div id="app">
+            <sen>
+                <span slot="bolgUrl">{{myData.bolgUrl}}</span>
+                <span slot="netName">{{myData.netName}}</span>
+                <span slot="skill">{{myData.skill}}</span>
+            </sen>
+
+        </div>
+    </section>
+    <template id="tmp">
+        <div>
+            <p>博客地址:<slot name="bolgUrl"></slot>
+            </p>
+            <p>网名:<slot name="netName"></slot>
+            </p>
+            <p>技术类型:<slot name="skill"></slot>
+            </p>
+        </div>
+    </template>
+
+    <script type="text/javascript">
+
+        var sen = {
+            template: "#tmp"
+        }
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                myData: {
+                    bolgUrl: "https://cn.bing.com/",
+                    netName: "bing",
+                    skill: ".net"
+                },
+            },
+            components: {
+                "sen": sen
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
