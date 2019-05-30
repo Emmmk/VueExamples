@@ -1,0 +1,24 @@
+.diamond{
+    width: 100px;
+    height: 100px;
+    background-color: lightsalmon;
+    margin: 100px auto;
+    -webkit-transform:rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+
+}
+
+.parallelogram{
+    width: 200px;
+    height: 100px;
+    background-color: lightsalmon;
+    margin: 100px auto;
+    -webkit-transform:skew(30deg,10deg);
+    -moz-transform: skew(30deg,10deg);
+    -ms-transform:skew(30deg,10deg);
+    -o-transform:skew(30deg,10deg);
+    transform:skew(30deg,10deg);
+}

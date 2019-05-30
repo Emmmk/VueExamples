@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>六角星</title>
+    <style>
+        .star {
+            height: 0px;
+            width: 0px;
+            border-bottom: 102px solid transparent;
+            border-top: 102px solid salmon;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;           
+           
+            position: relative;
+            margin: 100px auto;
+        }
+        .star::after{
+            content: '';
+            height: 0px;
+            width: 0px;
+            border-bottom: 102px solid salmon;
+            border-top: 102px solid transparent;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent; 
+            position:absolute;
+            top:-237px;
+            left: -60px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="star"></div>
+
+</body>
+
+</html>

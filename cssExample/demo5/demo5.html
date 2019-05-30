@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+        .demo{
+            margin: 50px auto;            
+            height: 0;
+            width: 0;            
+            border-left:5px solid transparent;
+            border-right:5px solid turquoise;
+            border-top: 5px solid transparent;
+            border-bottom:5px solid transparent;
+        }
+
+        .dialog{
+            background-color: #eb6ea5;
+            color: #fff;
+            width: 500px;
+            padding: 5px 8px;
+            border-radius: 3px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .dialog::before{
+            content: '';
+            /* height: 0;
+            width: 0;   */
+            border-left:10px solid transparent;
+            border-right:10px solid #eb6ea5;
+            border-top: 10px solid transparent;
+            border-bottom:10px solid transparent;
+            position: absolute;
+            left: -16px;
+        }
+
+    </style>
+</head>
+<body>
+    <p>三角形：</p>
+    <div class="demo">        
+    </div>    
+    <P>对话框</P>
+    <div class="dialog">hello I`m yansen</div>
+</body>
+</html>
+
