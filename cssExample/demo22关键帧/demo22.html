@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@keyframs</title>
+    <style>
+        .rect {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            position: fixed;
+            /* animation: mymove 4s infinite; */
+            animation-name: mymove;
+            animation-duration: 4s;
+            animation-timing-function: ease-out;
+            animation-iteration-count: 3;
+            animation-direction:alternate; 
+        }
+
+        @keyframes mymove
+        {
+            0% {top:0;left: 20%; background-color: bisque}
+            25%  {top:0;left: 80%; background-color: chocolate}
+            56%  {top:80%;left: 80%;background-color: cyan}
+            75% {top:80%;left: 20%; }
+            100% {top:0;left: 20%;}
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="rect"></div>
+
+
+</body>
+
+</html>
